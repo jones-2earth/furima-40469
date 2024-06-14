@@ -13,8 +13,7 @@
 | birthday           | data   | null: false                           |
 
 ### Association
-- belongs_to :prefecture
-- has_one :orders
+- has_many :orders
 - has_many :items
 
 ## sending_destinations テーブル
@@ -26,7 +25,7 @@
 | house_number    | string     | null:false                     |
 | building_name   | string     |                                |
 | phone_number    | string     | null: false                    |
-| orders          | references | null: false, foreign_key: true |
+| order           | references | null: false, foreign_key: true |
 
 ### Association
 - belongs_to :order
@@ -37,6 +36,7 @@
 | name               | string     | null: false                    |
 | price              | integer    | null: false                    |
 | item_description   | text       |                                |
+| category_id        | integer    | null: fase                     |
 | item_condition_id  | integer    | null: false, foreign_key: true |
 | postage_payer_id   | integer    | null: false, foreign_key: true |
 | preparation_day_id | integer    | null: false, foreign_key: true |
