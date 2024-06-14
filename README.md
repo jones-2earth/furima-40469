@@ -5,32 +5,19 @@
 | ------------------ | ------ | --------------------------------------|
 | nickname           | string | null: false                           |
 | email              | string | null: false, unique: true, index: true|
-| password           | string | null: false                           |
 | encrypted_password | string | null: false                           |
 | first_name         | string | null: false                           |
 | last_name          | string | null: false                           |
 | first_kana         | string | null: false                           |
 | last_kana          | string | null: false                           |
-| birth_year         | integer| null: false                           |
-| birth_month        | integer| null: false                           |
-| birth_day          | integer| null: false                           |
+| birthday           | data   | null: false                           |
 
 ### Association
-- has_one :credit_card, dependent: :destroy
+- belongs_to :prefecture
 - has_one :sending_destination, dependent: :destroy
 - has_many :buyer_items, foreign_key: "buyer_id", class_name: "items"
 - has_many :seller_items, foreign_key: "seller_id", class_name: "items"
 - has_many :comments
-
-## credit_cards テーブル
-| Column      | Type       | Options                        |
-| ----------- | ---------- | ------------------------------ |
-| user_id     | integer    | null: false                    |
-| customer_id | string     | null: false                    |
-| card_id     | string     | null:false                     |
-
-### Association
-- belongs_to :user
 
 ## sending_destinations テーブル
 | Column          | Type       | Options                        |
@@ -41,6 +28,7 @@
 | house_number    | string     | null:false                     |
 | building_name   | string     |                                |
 | phone_number    | string     | null: false                    |
+| user            | references | null: false, foreign_key: true |
 
 ### Association
 - belongs_to :user
@@ -65,19 +53,15 @@
 | item_condition_id  | integer    | null: false, foreign_key: true |
 | postage_payer_id   | integer    | null: false, foreign_key: true |
 | preparation_day_id | integer    | null: false, foreign_key: true |
-| prefecture_id      | integer    | null: false, foreign_key: true |
-| buyer              | references | foreign_key: true              |
-| seller             | references | null: false, foreign_key: true |
+| prefecture         | string     | null: false                    |
+| user               | references | foreign_key: true              |
 | category           | references | null: false, foreign_key: true |
 | brand              | integer    | foreign_key: true              |
-| image              | references | null: false, foreign_key: true |
 
 ### Association
 - has_many :item_images, dependent: :destroy
 - has_many :comments, dependent: :destroy
 - belongs_to :category
-- belongs_to :seller, class_name: "User"
-- belongs_to :buyer, class_name: "User"
 - belongs_to_active_hash :item_condition
 - belongs_to_active_hash :postage_payer
 - belongs_to_active_hash :preparation_day
