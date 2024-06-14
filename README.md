@@ -36,7 +36,7 @@
 | name               | string     | null: false                    |
 | price              | integer    | null: false                    |
 | item_description   | text       | null: false                    |
-| category_id        | integer    | null: fase                     |
+| category_id        | integer    | null: false                    |
 | item_condition_id  | integer    | null: false                    |
 | postage_payer_id   | integer    | null: false                    |
 | preparation_day_id | integer    | null: false                    |
