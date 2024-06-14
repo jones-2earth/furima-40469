@@ -10,7 +10,7 @@
 | last_name          | string | null: false                           |
 | first_kana         | string | null: false                           |
 | last_kana          | string | null: false                           |
-| birthday           | data   | null: false                           |
+| birthday           | date   | null: false                           |
 
 ### Association
 - has_many :orders
@@ -35,7 +35,7 @@
 | ------------------ | ---------- | ------------------------------ |
 | name               | string     | null: false                    |
 | price              | integer    | null: false                    |
-| item_description   | text       |                                |
+| item_description   | text       | null: false                    |
 | category_id        | integer    | null: fase                     |
 | item_condition_id  | integer    | null: false                    |
 | postage_payer_id   | integer    | null: false                    |
