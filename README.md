@@ -37,9 +37,9 @@
 | price              | integer    | null: false                    |
 | item_description   | text       |                                |
 | category_id        | integer    | null: fase                     |
-| item_condition_id  | integer    | null: false, foreign_key: true |
-| postage_payer_id   | integer    | null: false, foreign_key: true |
-| preparation_day_id | integer    | null: false, foreign_key: true |
+| item_condition_id  | integer    | null: false                    |
+| postage_payer_id   | integer    | null: false                    |
+| preparation_day_id | integer    | null: false                    |
 | prefecture_id      | integer    | null: false                    |
 | user               | references | null: false, foreign_key: true |
 
