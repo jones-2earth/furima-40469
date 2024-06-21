@@ -8,7 +8,6 @@ class User < ApplicationRecord
   #has_many :orders
 
   validates :nickname, presence: true
-  validates :email, presence: true
   validates :last_name, presence: true
   validates :first_name, presence: true
   validates :last_name_kana, presence: true
@@ -19,7 +18,7 @@ class User < ApplicationRecord
   validates :password, format: { with: VALID_PASSWORD_REGEX, message: 'is invalid. Include both letters and numbers'}
   
   with_options presence: true do
-    validates :last_name, :first_name, format: { with: /\A[ぁ-んァ-ン一-龥々]/, message: 'is invalid. Input full-width characters' }
+    validates :last_name, :first_name, format: { with: /\A[ぁ-んァ-ン一-龥々ーヶ]+\z/, message: 'is invalid. Input full-width characters' }
     validates :last_name_kana,:first_name_kana, format: { with: /\A[ァ-ヶー－]+\z/, message: 'is invalid. Input full-width katakana characters' }
   end
 end
