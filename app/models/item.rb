@@ -2,7 +2,7 @@ class Item < ApplicationRecord
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to :prefecture_id
   belongs_to :category
-  belongs_to :item_condition_id
+  belongs_to :condition
   belongs_to :postage_payer_id
   belongs_to :preparation_day_id
 
