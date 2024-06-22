@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_06_16_011859) do
+ActiveRecord::Schema[7.0].define(version: 2024_06_22_014720) do
   create_table "areas", charset: "utf8", force: :cascade do |t|
     t.integer "prefecture_id", null: false
     t.datetime "created_at", null: false
@@ -18,11 +18,15 @@ ActiveRecord::Schema[7.0].define(version: 2024_06_16_011859) do
   end
 
   create_table "items", charset: "utf8", force: :cascade do |t|
+    t.bigint "user_id", null: false
     t.string "name", null: false
     t.integer "price", null: false
-    t.string "item_description", null: false
-    t.string "category", null: false
-    t.bigint "user_id"
+    t.text "item_description", null: false
+    t.integer "category_id", null: false
+    t.integer "item_condition_id", null: false
+    t.integer "postage_payer_id", null: false
+    t.integer "prefecture_id", null: false
+    t.integer "preparation_day_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_items_on_user_id"
