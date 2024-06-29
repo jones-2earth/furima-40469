@@ -33,7 +33,6 @@ RSpec.describe User, type: :model do
     end
 
     context '新規登録がうまくいかないとき' do
-
       it 'ニックネームが空では登録できない' do
         @user.nickname = ''
         @user.valid?
@@ -51,7 +50,7 @@ RSpec.describe User, type: :model do
         another_user.valid?
         expect(another_user.errors.full_messages).to include('Email has already been taken')
       end
-      it  'メールアドレスに@を含まない場合は登録できない' do
+      it 'メールアドレスに@を含まない場合は登録できない' do
         @user.email = 'testtest'
         @user.valid?
         expect(@user.errors.full_messages).to include('Email is invalid')
@@ -106,7 +105,7 @@ RSpec.describe User, type: :model do
         @user.first_name = ''
         @user.valid?
         expect(@user.errors.full_messages).to include("First name can't be blank")
-      end   
+      end
       it '名（全角）に半角文字が含まれていると登録できない' do
         @user.first_name = 'rikutarou'
         @user.valid?
@@ -128,13 +127,13 @@ RSpec.describe User, type: :model do
         @user.first_name_kana = ''
         @user.valid?
         expect(@user.errors.full_messages).to include("First name kana can't be blank")
-      end      
+      end
       it '名（カナ）にカタカナ以外の文字（平仮名・漢字・英数字・記号）が含まれていると登録できない' do
         @user.first_name_kana = 'りくたろう'
         @user.valid?
         expect(@user.errors.full_messages).to include('First name kana is invalid. Input full-width katakana characters')
       end
-      
+
       it '生年月日が空だと登録できない' do
         @user.birthday = ''
         @user.valid?

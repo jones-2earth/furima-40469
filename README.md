@@ -35,11 +35,11 @@
 | ------------------ | ---------- | ------------------------------ |
 | name               | string     | null: false                    |
 | price              | integer    | null: false                    |
-| item_description   | text       | null: false                    |
+| description        | text       | null: false                    |
 | category_id        | integer    | null: false                    |
-| item_condition_id  | integer    | null: false                    |
-| postage_payer_id   | integer    | null: false                    |
-| preparation_day_id | integer    | null: false                    |
+| item_status_id     | integer    | null: false                    |
+| shipping_cost_id   | integer    | null: false                    |
+| shipping_date_id   | integer    | null: false                    |
 | prefecture_id      | integer    | null: false                    |
 | user               | references | null: false, foreign_key: true |
 
