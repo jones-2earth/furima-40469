@@ -47,7 +47,7 @@
 - belongs_to :user
 - has_one :order
 
-## orders テーブル
+## buyer テーブル
 | Column          | Type       | Options                        |
 | --------------- | ---------- | ------------------------------ |
 | user            | references | null: false, foreign_key:true  |
