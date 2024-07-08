@@ -2,7 +2,7 @@ class Item < ApplicationRecord
   extend ActiveHash::Associations::ActiveRecordExtensions
   # テーブルとのアソシエーション
   belongs_to :user
-  has_one :buyer
+  has_one :order
 
   # アクティブハッシュとのアソシエーション
   belongs_to :category
