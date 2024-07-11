@@ -17,8 +17,8 @@ class OrdersController < ApplicationController
     @item = Item.find(params[:item_id])
   end
 
-  def order_params
-    params.require(:order).permit(:content, :image).merge(user_id: current_user.id)
-  end
+  #def order_params
+    #params.require(:order).permit(:content, :image).merge(user_id: current_user.id)
+  #end
 
 end
