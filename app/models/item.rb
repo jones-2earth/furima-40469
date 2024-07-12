@@ -1,8 +1,9 @@
 class Item < ApplicationRecord
   extend ActiveHash::Associations::ActiveRecordExtensions
-  # テーブルとのアソシエーション
   belongs_to :user
   #has_one :order
+
+
 
   # アクティブハッシュとのアソシエーション
   belongs_to :category
@@ -13,7 +14,11 @@ class Item < ApplicationRecord
 
   # active_storageとのアソシエーション
   has_one_attached :image
-  
+
+  def was_attached?
+    self.image.attached?
+  end
+
   
   with_options presence: true do
     validates :image
