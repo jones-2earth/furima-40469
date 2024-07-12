@@ -16,10 +16,10 @@
     </div>
     <div class="item-price-box">
       <span class= "item-price">
-        <%= @item.price %>
+        <%= "¥ #{@item.price}" %>
       </span>
       <span class="item-postage">
-        (税込) 送料込み
+        <%= @item.shipping_cost.name %>
       </span>
     </div>
 
@@ -31,7 +31,7 @@
 
 
 
-      <%= link_to "購入画面に進む", item_orders_path(@item.id), method: :get, class:"item-red-btn" %>
+      <%#= link_to "購入画面に進む", item_orders_path(@item.id), method: :get, class:"item-red-btn" %>
     <% end %>
  
 
