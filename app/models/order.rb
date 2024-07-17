@@ -3,5 +3,5 @@
   #belongs_to :item
   #has_one_attached :image
 
- # validates :content, presence: true
+  #validates :content, presence: true
 #end
