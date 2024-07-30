@@ -125,18 +125,22 @@
       <%= link_to '新規投稿商品', new_item_path, class: "subtitle" %>
       <ul class='item-lists'>
 
-    <% unless @items == nil %>
       <% @items.each do |item| %>
         <li class='list'>
-          <%= link_to item_path(item.id) do %>
+          <%= link_to item_path(item) do %>
           <div class='item-img-content'>
-             <%= image_tag item.image, class: "item-img" %>
+             <%= image_tag item.image, class: "item-img" if item.image.attached? %>
 
-          <%# if @items.present? %>
-              <div class='sold-out'>
-                <span>Sold Out!!</span>
-              </div>
-          <%# end %>  
+             <% if item.order.present? %>
+               <div class='sold-out'>
+                 <span>Sold Out!!</span>
+               </div>
+             <% end %> 
+             <% if user_signed_in? && current_user.id == item.user_id && item.order == nil %>
+                <div class= "your-item">
+                  <span>出品中</span>
+                </div>
+             <% end %>
               
 
           </div>
@@ -155,7 +159,9 @@
           <% end %>
         </li>
       <% end %>
-    <% else %>
+    
+
+      <% if @items.blank? then %>
         <li class='list'>
           <%= link_to '#' do %>
           <%= image_tag "https://tech-master.s3.amazonaws.com/uploads/curriculums/images/Rails1-4/sample.jpg", class: "item-img" %>
@@ -173,10 +179,11 @@
           </div>
           <% end %>
         </li>
-    <% end %>
-    </ul>
+      <% end %>
+      </ul>
+    </div>
   </div>
-</div>
+
 <div class= 'purchase-btn'>
   <%= link_to new_item_path, class: "purchase-btn-text" do %>
   <p>出品する</p>

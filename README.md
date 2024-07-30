@@ -16,7 +16,7 @@
 - has_many :orders
 - has_many :items
 
-## sending_destinations テーブル
+## payment テーブル
 | Column          | Type       | Options                        |
 | --------------- | ---------- | ------------------------------ |
 | post_code       | string     | null: false                    |
