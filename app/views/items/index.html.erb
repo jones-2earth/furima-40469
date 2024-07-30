@@ -136,13 +136,6 @@
                  <span>Sold Out!!</span>
                </div>
              <% end %> 
-             <% if user_signed_in? && current_user.id == item.user_id && item.order == nil %>
-                <div class= "your-item">
-                  <span>出品中</span>
-                </div>
-             <% end %>
-              
-
           </div>
           <div class='item-info'>
             <h3 class='item-name'>
