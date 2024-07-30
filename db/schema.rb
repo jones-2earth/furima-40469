@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_07_07_014406) do
+ActiveRecord::Schema[7.0].define(version: 2024_07_26_083815) do
   create_table "active_storage_attachments", charset: "utf8", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
@@ -69,6 +69,19 @@ ActiveRecord::Schema[7.0].define(version: 2024_07_07_014406) do
     t.index ["user_id"], name: "index_orders_on_user_id"
   end
 
+  create_table "payments", charset: "utf8", force: :cascade do |t|
+    t.bigint "order_id", null: false
+    t.string "postcode", default: "", null: false
+    t.integer "prefecture_id", null: false
+    t.string "city", default: "", null: false
+    t.string "block", default: "", null: false
+    t.string "building"
+    t.string "phone_number", default: "", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["order_id"], name: "index_payments_on_order_id"
+  end
+
   create_table "users", charset: "utf8", force: :cascade do |t|
     t.string "nickname", null: false
     t.string "email", default: "", null: false
@@ -90,4 +103,5 @@ ActiveRecord::Schema[7.0].define(version: 2024_07_07_014406) do
   add_foreign_key "items", "users"
   add_foreign_key "orders", "items"
   add_foreign_key "orders", "users"
+  add_foreign_key "payments", "orders"
 end

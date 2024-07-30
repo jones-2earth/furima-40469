@@ -1,7 +1,8 @@
-#class Order < ApplicationRecord
-  #belongs_to :user
-  #belongs_to :item
-  #has_one_attached :image
+class Order < ApplicationRecord
 
-  #validates :content, presence: true
-#end
+  belongs_to :user
+  belongs_to :item
+  has_one :payment
+
+
+end
