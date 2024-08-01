@@ -3,8 +3,6 @@ class Item < ApplicationRecord
   belongs_to :user
   has_one :order
 
-
-
   # アクティブハッシュとのアソシエーション
   belongs_to :category
   belongs_to :prefecture
